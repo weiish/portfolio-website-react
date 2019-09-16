@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-name {
+    color: black;
+    font-family: Monda;
+    font-size: 24px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-nav {
+    margin: 0;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header a:hover{
+    color: $hover-link;
+}
+
+.nav-ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-ul li {
+    color: $dark-blue;
+    font-family: Monda;
+    display: inline;
+    margin-top: 15px;
+    padding: 0 15px 0 15px;
+}
+
