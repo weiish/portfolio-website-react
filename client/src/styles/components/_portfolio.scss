@@ -1,0 +1,25 @@
+.portfolio-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-container {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 75%;
+    min-width: 75%;
+}
+
+.project-title {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
+.project-img-container {
+    flex: 1 1 50%;
+}
+
+.project-text-container {
+    flex: 1 1 50%;
+}

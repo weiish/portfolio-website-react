@@ -6,19 +6,19 @@ class Header extends Component {
     return (
       <div className="header-container">
         <header className="header">
-          <Link className="header-name hvr-grow" to="/">
+          <Link className="header-name" to="/">
             WEI SHI
           </Link>
           <nav className="header-nav">
             <ul className="nav-ul">
               <li>
-                <Link className="hvr-grow" to="/">Portfolio</Link>
+                <Link to="/">Portfolio</Link>
               </li>
               <li>
-                <Link className="hvr-grow" to="/about">About Me</Link>
+                <Link to="/about">About Me</Link>
               </li>
               <li>
-                <Link className="hvr-grow" to="/resume">Resume</Link>
+                <Link to="/resume">Resume</Link>
               </li>
             </ul>
           </nav>
