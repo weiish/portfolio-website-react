@@ -10,7 +10,7 @@ class Portfolio extends Component {
   }
 
   async componentDidMount() {
-    const res = await axios.get('/api');
+    const res = await axios.get('/api/projects');
     console.log(res.data)
     this.setState({
       loading: false, 
@@ -21,9 +21,12 @@ class Portfolio extends Component {
   renderProjects(projects) {
     const projectCards = projects.map(pj => {
       return <ProjectCard 
+        id={pj.id}
         key={pj.title}
         title={pj.title} 
-        description={pj.description}
+        summary={pj.summary}
+        technologies={pj.technologies}
+        images={pj.images}
       />
     })
     return projectCards;

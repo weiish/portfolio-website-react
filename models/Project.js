@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
-const ImageSchema = require('./Image');
 
 const projectSchema = new Schema({
+    id: String,
     title: String,
+    technologies: [String],
     summary: String,
     description: String,
-    images: [ImageSchema]
+    images: [String],
+    demo: String
 })
 
 mongoose.model('projects', projectSchema);

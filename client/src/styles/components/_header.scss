@@ -20,6 +20,10 @@
     text-decoration: none;
 }
 
+.header a:visited {
+    color: $default-text;
+}
+
 .header a:hover{
     color: $hover-link;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
+import resume from "../files/Shi-Wei-Resume.pdf";
 
 class Header extends Component {
   render() {
@@ -18,7 +19,7 @@ class Header extends Component {
                 <Link to="/about">About Me</Link>
               </li>
               <li>
-                <Link to="/resume">Resume</Link>
+                <a href={resume}>Resume</a>
               </li>
             </ul>
           </nav>

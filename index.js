@@ -5,24 +5,24 @@ const app = express();
 const PORT = process.env.PORT || "5000";
 
 require('./models/Project');
-require('./models/Image');
+
+const Projects = mongoose.model("projects");
 
 mongoose.connect(process.env.mongoURI);
 
-app.get("/api", (req, res) => {
-    let projects = []
-    for (let i = 0; i < 3; i++) {
-        projects.push({
-            title: 'Title from backend',
-            description: 'description here',
-            linkurl: 'linkurl'
-        })
-    }
-  res.status(200).send(projects);
+app.get("/api/projects", async (req, res) => {
+    let projects = await Projects.find().exec();
+    res.status(200).send(projects);
 });
 
-app.get("/", (req, res) => {
-  res.status(200).send("Hello");
+app.get("/api/projects/:id", async (req, res) => {
+  let project = await Projects.find({id: req.params.id}).exec();
+  if (project[0]) {
+    res.status(200).send(project[0]);
+  } else {
+    res.status(400).send('Project not found');
+  }
+  
 });
 
 app.listen(PORT, () => {
