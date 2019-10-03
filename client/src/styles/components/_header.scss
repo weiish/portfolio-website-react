@@ -1,10 +1,17 @@
+.header-container {
+    flex: 1;
+}
+
+
 .header {
     display: flex;
     justify-content: space-between;
+    padding: 0 25%;
+    padding-top: 10px;
+    background-color: #24292e;
 }
 
 .header-name {
-    color: black;
     font-family: Monda;
     font-size: 24px;
     letter-spacing: -1px;
@@ -21,11 +28,26 @@
 }
 
 .header a:visited {
-    color: $default-text;
+    color: $light-text;
 }
 
 .header a:hover{
     color: $hover-link;
+}
+
+.header-logo-bright, .header-logo-dark {
+    max-height: 25px;
+    width: auto;
+}
+
+.header-logo-bright:hover {
+    -webkit-filter: brightness(2);
+   filter: brightness(2);
+}
+
+.header-logo-dark:hover {
+    -webkit-filter: brightness(0.7);
+   filter: brightness(0.7);
 }
 
 .nav-ul {

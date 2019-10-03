@@ -1,12 +1,7 @@
 /* ANIMATIONS -------------------------------*/
 /* Grow */
 .hvr-grow {
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    transition: transform 0.05s;
+    transition: all 0.1s;
 }
 
 .hvr-grow:hover {

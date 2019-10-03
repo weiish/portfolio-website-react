@@ -8,7 +8,9 @@ const projectSchema = new Schema({
     summary: String,
     description: String,
     images: [String],
-    demo: String
+    demotext: String,
+    demo: String,
+    code: String
 })
 
 mongoose.model('projects', projectSchema);
