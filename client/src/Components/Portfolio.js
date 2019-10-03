@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import Introduction from "./Introduction";
 import ProjectCard from "./ProjectCard";
+import tech from "../static/technologies";
 
 function Filter(props) {
-  return <button>{props.name}</button>;
+  return <button onClick={props.onClick}>{props.name}</button>;
 }
 
 class Portfolio extends Component {
@@ -22,15 +23,53 @@ class Portfolio extends Component {
     });
   }
 
-  renderFilters() {
-    const technologies = []
-    let filters = {};
+  handleFilterClick(tech) {
+    let filters = this.state.filters;
+    let index = filters.indexOf(tech);
+    if (index >= 0) {
+      filters.splice(index, 1);
+    } else {
+      filters.push(tech);
+    }
+    this.setState({
+      filters
+    });
+    console.log(this.state.filters);
+  }
 
-    return <div className="portfolio-filters-container"></div>;
+  renderFilter(tech) {
+    return <Filter onClick={() => this.handleFilterClick(tech)} name={tech} />;
+  }
+
+  renderFilters() {
+    let filterCategories = Object.keys(tech);
+    return (
+      <div className="portfolio-filters-container">
+        {filterCategories.map(category =>
+          this.renderCategory(category, tech[category])
+        )}
+      </div>
+    );
+  }
+
+  renderCategory(category, techs) {
+    return (
+      <div className="portfolio-filters-button-group">
+        <h1 className="portfolio-filters-button-group-category">{category}</h1>
+        {techs.map(tech => this.renderFilter(tech))}
+      </div>
+    );
   }
 
   renderProjects(projects) {
-    const projectCards = projects.map(pj => {
+    const filters = this.state.filters;
+    let filteredProjects = projects.filter(project => {
+      for (let i = 0; i < filters.length; i++) {
+        if (project.technologies.indexOf(filters[i]) === -1) return false;
+      }
+      return true;
+    })
+    const projectCards = filteredProjects.map(pj => {
       return (
         <ProjectCard
           id={pj.id}
@@ -50,7 +89,6 @@ class Portfolio extends Component {
     return (
       <div className="portfolio-container">
         <Introduction />
-      
         {this.renderFilters()}
         {loading ? "Loading projects..." : this.renderProjects(projects)}
       </div>
