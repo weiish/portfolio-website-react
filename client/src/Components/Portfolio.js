@@ -5,7 +5,12 @@ import ProjectCard from "./ProjectCard";
 import tech from "../static/technologies";
 
 function Filter(props) {
-  return <button onClick={props.onClick}>{props.name}</button>;
+  let additionalClass = props.active ? " filter-button-active" : "";
+  return (
+    <button className={"portfolio-filters-button" + additionalClass} onClick={props.onClick}>
+      {props.name}
+    </button>
+  );
 }
 
 class Portfolio extends Component {
@@ -38,7 +43,7 @@ class Portfolio extends Component {
   }
 
   renderFilter(tech) {
-    return <Filter onClick={() => this.handleFilterClick(tech)} name={tech} />;
+    return <Filter active={this.state.filters.indexOf(tech) >= 0} onClick={() => this.handleFilterClick(tech)} name={tech} />;
   }
 
   renderFilters() {
@@ -54,9 +59,11 @@ class Portfolio extends Component {
 
   renderCategory(category, techs) {
     return (
-      <div className="portfolio-filters-button-group">
-        <h1 className="portfolio-filters-button-group-category">{category}</h1>
-        {techs.map(tech => this.renderFilter(tech))}
+      <div className="portfolio-filters-category-group">
+        <h1 className="portfolio-filters-category">{category}</h1>
+        <div className="portfolio-filters-button-group">
+          {techs.map(tech => this.renderFilter(tech))}
+        </div>
       </div>
     );
   }
@@ -68,7 +75,7 @@ class Portfolio extends Component {
         if (project.technologies.indexOf(filters[i]) === -1) return false;
       }
       return true;
-    })
+    });
     const projectCards = filteredProjects.map(pj => {
       return (
         <ProjectCard
@@ -90,7 +97,9 @@ class Portfolio extends Component {
       <div className="portfolio-container">
         <Introduction />
         {this.renderFilters()}
-        {loading ? "Loading projects..." : this.renderProjects(projects)}
+        <div className="portfolio-cards-container">
+          {loading ? "Loading projects..." : this.renderProjects(projects)}
+        </div>
       </div>
     );
   }

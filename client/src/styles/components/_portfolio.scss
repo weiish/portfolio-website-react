@@ -6,13 +6,63 @@
     width: 100%;
 }
 
+.portfolio-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 75%;
+    margin: auto;
+}
 
 .project-card-container {
+    flex: 1 1 auto;
     margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
-    max-width: 768px;
-    min-width: 768px;
+    max-width: 700px;
+    min-width: 700px;
+    padding: 20px 20px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 2px 4px #555;
+}
+
+.portfolio-filters-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.portfolio-filters-category {
+    font-size: 20px;
+}
+
+.portfolio-filters-category-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+.portfolio-filters-button-group {
+    display: flex;
+}
+
+.portfolio-filters-button {
+    border: 1px solid $blue;
+    padding: 5px 5px;
+    background-color: $off-white;
+    flex: 1 1 auto;
+}
+
+.portfolio-filters-button:hover {
+    color: white;
+    background-color: $blue;
+}
+
+.filter-button-active {
+    color: white;
+    background-color: $dark-blue;
 }
 
 .project-title {

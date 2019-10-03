@@ -1,7 +1,7 @@
 module.exports = {
-    language: ['JavaScript','Python','C#'],
-    frontend: ['React','Redux', 'HTML5', 'CSS', 'Sass'],
-    backend: ['Node.js', 'Express.js', 'Socket.io', 'REST APIs'],
-    database: ['MySQL', 'MongoDB'],
-    other: ['Heroku', 'AWS', 'Unity']
+    Language: ['JavaScript','Python','C#'],
+    Frontend: ['React','Redux', 'HTML5', 'CSS', 'Sass'],
+    Backend: ['Node.js', 'Express.js', 'Socket.io', 'REST APIs'],
+    Database: ['MySQL', 'MongoDB'],
+    Other: ['Heroku', 'AWS', 'Unity']
 }
