@@ -42,6 +42,7 @@ class ProjectDetail extends Component {
             <hr />
             <p>Note, for the demo you may need to wait a bit for heroku to boot up the app...</p>
             <a className="project-link hvr-grow" href={data.demo}>Demo</a>
+            <a className="project-link hvr-grow" href={data.code}>Code</a>
           </div>
         </div>
       );
