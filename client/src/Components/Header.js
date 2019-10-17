@@ -10,7 +10,7 @@ class Header extends Component {
       <div className="header-container">
         <header className="header">
           <Link className="header-name" to="/">
-            WEI SHI
+            Wei Shi
           </Link>
           <nav className="header-nav">
             <ul className="nav-ul">
