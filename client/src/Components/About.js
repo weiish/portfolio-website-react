@@ -19,7 +19,7 @@ class About extends Component {
         <p>
           I'd love to hear from you.
           </p>
-          <p>Send me an email at shixwei@gmail.com</p>
+          <p>Send me an email at hello@shixwei.com</p>
         </div>
       </div>
     );
