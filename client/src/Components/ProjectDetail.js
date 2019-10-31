@@ -7,12 +7,7 @@ class ProjectSidebar extends Component {
   render() {
     return (
       <div className="project-sidebar-container">
-        <div className="project-sidebar-timeline-container">
-          <h1 className="project-sidebar-title">Timeline</h1>
-        </div>
-        <div className="project-sidebar-tech-container">
-        <h1 className="project-sidebar-title">Tech</h1>
-        </div>
+        
         <div className="project-sidebar-demo-container">
           <p>
             Note, for the demo you may need to wait a bit for heroku to boot up
