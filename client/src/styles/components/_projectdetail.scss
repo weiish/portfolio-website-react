@@ -1,10 +1,30 @@
 .project-detail-container {
     display: flex;
     flex-direction: column;
-    max-width: $max-width-default;
+    flex-wrap: wrap;
+    width: $max-width-default + 200px;
+    height: 100%;
     margin: auto;
 }
 
+.project-sidebar-container {
+    margin: 0;
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+    background-color: $blue;
+    color: $off-white;
+    margin-right: 15px;
+    padding: 15px;
+}
+
+.project-main-container {
+    flex: 1 1 100%;
+    height: 100%;
+    width: $max-width-default;
+}
 
 .project-detail-card-container {
     margin: 20px auto;
@@ -57,14 +77,16 @@
 
 .project-detail-link {
     text-decoration: none;
-    color: rgb(8, 87, 139);
-    border: 1px solid rgb(8, 87, 139);
+    color: rgb(131, 253, 237);
+    border: 1px solid rgb(131, 253, 237);
+    text-align: center;
     margin: auto;
     margin-top: 10px;
     padding: 5px;
+    width: 100%;
 }
 
 .project-detail-link:hover {
-    color: white;
-    background-color: rgb(8, 87, 139);
+    color: black;
+    background-color: rgb(131, 253, 237);
 }
