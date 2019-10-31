@@ -4,6 +4,6 @@ Hi! This is my portfolio website, developed using Node, Express, React, and Mong
 
 All data about the portfolio projects are pulled from the database, to make it easier to make additions in the future. 
 
-#Demo
+# Demo
 
-Please check out the live portfolio at shixwei.com
+Please check out the live portfolio at www.shixwei.com
