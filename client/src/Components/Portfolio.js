@@ -39,7 +39,6 @@ class Portfolio extends Component {
     this.setState({
       filters
     });
-    console.log(this.state.filters);
   }
 
   renderFilter(tech) {
@@ -71,8 +70,12 @@ class Portfolio extends Component {
   renderProjects(projects) {
     const filters = this.state.filters;
     let filteredProjects = projects.filter(project => {
+      const combinedTech = [];
+      for (let key in project.technologies) {
+        combinedTech.push(...project.technologies[key]);
+      }
       for (let i = 0; i < filters.length; i++) {
-        if (project.technologies.indexOf(filters[i]) === -1) return false;
+        if (combinedTech.indexOf(filters[i]) === -1) return false;
       }
       return true;
     });

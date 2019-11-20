@@ -4,21 +4,42 @@ import { Link } from "react-router-dom";
 
 class ProjectSidebar extends Component {
 
+  renderTech(data) {
+    const keys = Object.keys(data.technologies);
+    console.log(keys)
+    return (
+    <div className="project-detail-tech-container">
+      {keys.map(key => {
+        if (data.technologies[key].length === 0) {
+          return ''
+        }
+        return (<div className="project-detail-tech-subcontainer">
+        <h1 className="project-detail-tech-subheader">{key}</h1>
+        {
+          data.technologies[key].map(tech => {
+            return (
+              <p className="project-detail-tech-text">{tech}</p>
+          )
+          })
+        }
+        </div>)
+      })}
+    </div>
+      )
+  }
+
   render() {
+    const data = this.props.data;
     return (
       <div className="project-sidebar-container">
-        
+        {this.renderTech(data)}
         <div className="project-sidebar-demo-container">
-          <p>
-            Note, for the demo you may need to wait a bit for heroku to boot up
-            the app...
-          </p>
-          <a className="project-detail-link hvr-grow" href={this.props.demo}>
+          <a target="_blank" rel="noopener noreferrer" className="project-detail-link hvr-grow" href={this.props.data.demo}>
             Demo
           </a>
         </div>
         <div className="project-sidebar-code-container">
-          <a className="project-detail-link hvr-grow" href={this.props.code}>
+          <a target="_blank" rel="noopener noreferrer" className="project-detail-link hvr-grow" href={this.props.data.code}>
             Code
           </a>
         </div>
@@ -42,23 +63,14 @@ class ProjectDetail extends Component {
     });
   }
 
-  renderTech(data) {
-    return data.technologies.map(tech => {
-      return <p className="project-detail-tech-text">{tech}</p>;
-    });
-  }
-
   renderProject() {
     const { data } = this.state;
-    console.log(data);
     return (
       <div className="project-detail-container">
-        <ProjectSidebar demo={data.demo} code={data.code} />
+        <ProjectSidebar data={data} />
         <div className="project-main-container">
           <h1 className="project-detail-title">{data.title}</h1>
-          <div className="project-detail-tech-container">
-            {this.renderTech(data)}
-          </div>
+          
           <div className="project-detail-img-container">
             <img
               className="project-detail-img"
@@ -67,8 +79,28 @@ class ProjectDetail extends Component {
           </div>
 
           <div className="project-detail-text-container">
-            <p className="project-detail-description">{data.description}</p>
-            <hr />
+            <h1 className="project-detail-text-header">Description</h1>
+            <p className="project-detail-description">{data.summary}</p>
+            <h1 className="project-detail-text-header">Problem</h1>
+            {data.problem.map(text => {
+              return <p className="project-detail-text">{text}</p>
+            })}
+            <h1 className="project-detail-text-header">Solution</h1>
+            {data.solution.map(text => {
+              return <p className="project-detail-text">{text}</p>
+            })}
+            <h1 className="project-detail-text-header">Features</h1>
+            {data.features.map(text => {
+              return <li className="project-detail-text">{text}</li>
+            })}
+            <h1 className="project-detail-text-header">What I learned</h1>
+            {data.learned.map(text => {
+              return <p className="project-detail-text">{text}</p>
+            })}
+            <h1 className="project-detail-text-header">Future Improvements</h1>
+            {data.improvement.map(text => {
+              return <p className="project-detail-text">{text}</p>
+            })}
           </div>
         </div>
       </div>

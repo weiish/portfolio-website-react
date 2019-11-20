@@ -2,8 +2,24 @@
     margin: 10px 0px;
 }
 
+.project-detail-tech-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.project-detail-tech-subheader {
+    font-size: 18px;
+}
+
+.project-detail-tech-text {
+    margin: auto;
+    text-align: center;
+}
+
 .project-sidebar-tech-container {
     margin: 10px 0px;
+    height: 100%;
 }
 
 .project-sidebar-demo-container {

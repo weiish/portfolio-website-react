@@ -6,7 +6,7 @@ class Introduction extends Component {
     return (
       <div className="introduction-container">
         <h1 className = "introduction-header">Hi! Nice to meet you.</h1>
-        <p className="introduction-text">I'm an avid programmer looking for full-time positions</p>
+        <p className="introduction-text">I'm an avid self-taught programmer looking for full-time software development positions</p>
         <hr />
       </div>
     );
